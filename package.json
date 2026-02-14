@@ -1,0 +1,12 @@
+{
+  "name": "greecontech",
+  "private": true,
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.12.3",
+  "scripts": {
+    "dev:web": "pnpm --filter @greecon/web dev",
+    "lint:web": "pnpm --filter @greecon/web lint",
+    "typecheck:web": "pnpm --filter @greecon/web typecheck",
+    "build:web": "pnpm --filter @greecon/web build"
+  }
+}
