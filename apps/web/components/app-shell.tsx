@@ -23,14 +23,30 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-zinc-50">
       <div className="mx-auto flex w-full max-w-[1440px]">
         <aside className="sticky top-0 h-screen w-64 border-r border-zinc-200/80 bg-white/80 p-6">
-          <h1 className="mb-8 text-lg font-semibold tracking-tight text-greecon.deep">Greecon Platform</h1>
+          <h1 className="mb-8 text-lg font-semibold tracking-tight text-greecon-deep">
+  Greecon Platform
+</h1>
+
           <nav className="space-y-1">
-            {navItems.map(({ href, label, icon: Icon }) => (
-              <Link key={href} href={href} className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900">
-                <Icon className="h-4 w-4" />
-                {label}
-              </Link>
-            ))}
+            {navItems.map(({ href, label, icon: Icon }) => {
+  const isActive = pathname === href || pathname.startsWith(href);
+  return (
+    <Link
+      key={href}
+      href={href}
+      className={[
+        "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition",
+        isActive
+          ? "bg-greecon-deep/10 text-greecon-primary"
+          : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900",
+      ].join(" ")}
+    >
+      <Icon className="h-4 w-4" />
+      {label}
+    </Link>
+  );
+})}
+
           </nav>
         </aside>
 
